@@ -4,6 +4,7 @@ import helmet from "helmet"
 import cookieParser from "cookie-parser"
 import 'dotenv/config'
 import { prisma } from "./db"
+import habitRoutes from "./routes/habit.routes"
 
 const app = express()
 
@@ -44,6 +45,9 @@ app.post('/api/test-user', async (req, res) => {
         res.status(500).json({ error: 'Error creando usuario de prueba' })
     }
 })
+
+app.use('/api/habits', habitRoutes)
+
 // --- FIN RUTA DE PRUEBA BBDD ---
 const PORT = Number(process.env.PORT ?? 3000)
 app.listen(PORT, () => {
