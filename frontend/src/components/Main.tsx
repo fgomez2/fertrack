@@ -16,7 +16,7 @@ export function Main() {
 
                 {/* ESLOGAN */}
                 <h2 className="font-archivo text-4xl sm:text-5xl md:text-6xl leading-tight text-white">
-                    Domina tus hábitos..{' '}
+                    Domina tus hábitos.{' '}
                     <br className="hidden sm:block" />
                     <span
                         className="bg-gradient-to-r from-violet-400 via-indigo-400 to-indigo-300 bg-clip-text text-transparent"
