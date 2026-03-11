@@ -1,13 +1,18 @@
 import { Header } from './components/Header'
-import { Main } from './components/Main'
+import { Footer } from './components/Footer'
+import { AppRouter } from './routes'
 
 function App() {
 
   return (
     <>
-      {/* HEADER */}
+      {/* HEADER SIEMPRE VISIBLE*/}
       <Header />
-      <Main />
+      
+      <AppRouter />
+
+      {/* FOOTER SIEMPRE VISIBLE */}
+      <Footer />
     </>
   )
 }
