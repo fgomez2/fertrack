@@ -13,10 +13,6 @@ export function Main() {
 
             {/* Hero sect */}
             <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-32 pb-24 max-w-4xl mx-auto">
-                <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1 text-xs font-archivo text-violet-300 tracking-widest uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
-                    Habit Tracker
-                </span>
 
                 {/* ESLOGAN */}
                 <h2 className="font-archivo text-4xl sm:text-5xl md:text-6xl leading-tight text-white">
@@ -38,9 +34,6 @@ export function Main() {
                 <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                     <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 text-white font-archivo text-sm font-medium px-8 py-3 rounded-lg cursor-pointer [box-shadow:0_0_20px_rgba(99,102,241,0.40)] hover:[box-shadow:0_0_28px_rgba(99,102,241,0.65)]">
                         Empezar ahora
-                    </button>
-                    <button className="w-full sm:w-auto border border-zinc-700 hover:border-violet-500 hover:text-violet-400 hover:[box-shadow:0_0_16px_rgba(167,139,250,0.30)] transition-all duration-300 text-zinc-300 font-archivo text-sm font-medium px-8 py-3 rounded-lg cursor-pointer">
-                        Ver demo
                     </button>
                 </div>
             </section>
