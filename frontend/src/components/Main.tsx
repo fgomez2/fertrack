@@ -1,4 +1,27 @@
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+
 export function Main() {
+    // Referencia al contenedor padre de los elementos
+    // que tendrán animación
+    const containerRef = useRef<HTMLElement>(null)
+
+    useGSAP(() => {
+        // Seleccionamos los elementos hijos
+        // clase común .animate-item
+        const elementsToAnimate = gsap.utils.toArray('.animate-item')
+
+        gsap.from(elementsToAnimate, {
+            y: -30,
+            opacity: 0,
+            duration: 1.2, // duración de la animación para cada elemento
+            ease: 'power3.out',
+            stagger: 0.2, // tiempo de espera entre la animacion de cada elemento
+            delay: 0.1,
+        })
+    }, { scope: containerRef }) // que GSAP solo busque dentro de este contenedor
+
     return (
         <main className="relative min-h-screen bg-zinc-950 overflow-hidden">
 
@@ -12,10 +35,10 @@ export function Main() {
             />
 
             {/* Hero sect */}
-            <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-32 pb-24 max-w-4xl mx-auto">
+            <section ref={containerRef} className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-32 pb-24 max-w-4xl mx-auto">
 
                 {/* ESLOGAN */}
-                <h2 className="font-archivo text-4xl sm:text-5xl md:text-6xl leading-tight text-white">
+                <h2 className="animate-item font-archivo text-4xl sm:text-5xl md:text-6xl leading-tight text-white">
                     Domina tus hábitos.{' '}
                     <br className="hidden sm:block" />
                     <span
@@ -26,12 +49,12 @@ export function Main() {
                     desde un solo lugar.
                 </h2>
 
-                <p className="mt-6 max-w-xl text-zinc-400 text-base sm:text-lg leading-relaxed">
+                <p className="animate-item mt-6 max-w-xl text-zinc-400 text-base sm:text-lg leading-relaxed">
                     Registra, visualiza y celebra cada pequeño avance. Tu disciplina merece una herramienta a su altura.
                 </p>
 
                 {/* CTAs */}
-                <div className="mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                <div className="animate-item mt-10 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                     <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 text-white font-archivo text-sm font-medium px-8 py-3 rounded-lg cursor-pointer [box-shadow:0_0_20px_rgba(99,102,241,0.40)] hover:[box-shadow:0_0_28px_rgba(99,102,241,0.65)]">
                         Empezar ahora
                     </button>
@@ -39,9 +62,7 @@ export function Main() {
             </section>
 
             {/* Línea decorativa inferior del hero */}
-            <div
-                aria-hidden
-                className="pointer-events-none absolute bottom-0 left-0 w-full h-px"
+            <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 w-full h-px"
                 style={{ background: 'linear-gradient(90deg, transparent, rgba(139,92,246,0.4), transparent)' }}
             />
         </main>
