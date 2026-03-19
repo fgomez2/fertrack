@@ -27,7 +27,7 @@ export function Main() {
 
             {/* degradado */}
             <div aria-hidden
-                className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full"
+                className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[2500px] h-[400px] rounded-full"
                 style={{
                     background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.25) 0%, rgba(99,102,241,0.10) 45%, transparent 75%)',
                     filter: 'blur(32px)',
