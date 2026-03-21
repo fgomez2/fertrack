@@ -1,11 +1,17 @@
 import { useRef } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { useInView } from '../hooks/useInView'
+import { BarChartGraphic } from './charts/BarChartGraphic'
+import { CircularGraphic } from './charts/CircularGraphic'
 
 export function Main() {
     // Referencia al contenedor padre de los elementos
     // que tendrán animación
     const containerRef = useRef<HTMLElement>(null)
+
+    // Detectar visibilidad para la sección de las graficas
+    const { ref: chartsRef, isInView: chartsVisible } = useInView<HTMLDivElement>()
 
     useGSAP(() => {
         // Seleccionamos los elementos hijos
@@ -58,6 +64,38 @@ export function Main() {
                     <button className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 transition-all duration-300 text-white font-archivo text-sm font-medium px-8 py-3 rounded-lg cursor-pointer [box-shadow:0_0_20px_rgba(99,102,241,0.40)] hover:[box-shadow:0_0_28px_rgba(99,102,241,0.65)]">
                         Empezar ahora
                     </button>
+                </div>
+            </section>
+
+            {/* Sección "Seguimimento de hábitos" */}
+            <section ref={chartsRef}
+                className="animate-item relative z-10 mt-16 px-6 max-w-5xl mx-auto pb-20 sm:pb-24"
+            >
+                {/* Título */}
+                <h3 className="text-3xl sm:text-4xl font-archivo text-center mb-4">
+                    <span className="bg-gradient-to-r from-violet-400 via-indigo-400 to-indigo-300 bg-clip-text text-transparent">
+                        Seguimiento de hábitos
+                    </span>
+                </h3>
+
+                {/* Descripción */}
+                <p className="text-center text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8">
+                    Visualiza tus rachas e índices de éxito. Nuestros intuitivos gráficos te ayudarán a comprender dónde debes centrar realmente tu atención.
+                </p>
+
+                {/* Contenedor de gráficas */}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 sm:p-8 [box-shadow:0_4px_24px_rgba(99,102,241,0.12)]">
+                    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        {/* Gráfica de barras */}
+                        <div className="w-full sm:w-[60%]">
+                            <BarChartGraphic isVisible={chartsVisible} />
+                        </div>
+
+                        {/* Gráfica circular  */}
+                        <div className="w-full sm:w-[40%]">
+                            <CircularGraphic isVisible={chartsVisible} />
+                        </div>
+                    </div>
                 </div>
             </section>
 
