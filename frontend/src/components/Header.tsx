@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function Header() {
     const [isMenuOpen, setMenuOpen] = useState(false)
@@ -7,18 +8,20 @@ export function Header() {
         <header className="w-full bg-zinc-950 border-b border-zinc-800 px-6 py-4">
             <div className="max-w-5xl mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <div className="flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-md bg-indigo-500 flex items-center justify-center text-white text-sm font-bold">FT</span>
-                    <h1 className="text-white text-xl tracking-tight font-archivo">
-                        Fer<span className="text-indigo-400">Track</span>
-                    </h1>
+                <div>
+                    <Link to="/" className="flex items-center gap-2">
+                        <span className="w-7 h-7 rounded-md bg-indigo-500 flex items-center justify-center text-white text-sm font-bold">FT</span>
+                        <h1 className="text-white text-xl tracking-tight font-archivo">
+                            Fer<span className="text-indigo-400">Track</span>
+                        </h1>
+                    </Link>
                 </div>
 
                 {/* Nav — en desktop */}
                 <nav className="hidden sm:flex items-center gap-6 text-sm text-zinc-400 font-archivo">
-                    <a href="#" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Dashboard</a>
-                    <a href="#" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Habits</a>
-                    <a href="#" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Stats</a>
+                    <Link to="/dashboard" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Dashboard</Link>
+                    <Link to="/habits" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Habits</Link>
+                    <Link to="/stats" className="hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Stats</Link>
                 </nav>
 
                 {/* Parte derecha */}
@@ -45,9 +48,9 @@ export function Header() {
             {/* Nav — móvil dropdown */}
             {isMenuOpen && (
                 <div className="sm:hidden mt-4 border-t border-zinc-800 pt-4 flex flex-col gap-3">
-                    <a href="#" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Dashboard</a>
-                    <a href="#" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Habits</a>
-                    <a href="#" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Stats</a>
+                    <Link to="/dashboard" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Dashboard</Link>
+                    <Link to="/habits" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Habits</Link>
+                    <Link to="/stats" className="font-archivo text-sm text-zinc-400 hover:text-violet-400 hover:[text-shadow:0_0_12px_rgba(167,139,250,0.85)] transition-all duration-300">Stats</Link>
                     <button className="mt-1 w-full bg-indigo-500 hover:bg-indigo-400 transition-colors text-white text-sm font-medium px-4 py-2 rounded-lg cursor-pointer">
                         New Habit
                     </button>
