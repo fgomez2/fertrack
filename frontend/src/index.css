@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
 @import "@fontsource/archivo-black";
+@import "@fontsource/inter";
 
 @theme {
     --font-archivo: "Archivo Black", sans-serif;
+    --font-inter: "Inter", sans-serif;
 }
